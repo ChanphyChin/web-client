@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  HashRouter as Router,
+  Switch,
+} from "react-router-dom";
+
+import { config, RouteWithSubRoutes } from './routes';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Switch>
+          {config.map(route => (
+            <RouteWithSubRoutes key={route.path} {...route} />
+          ))}
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
