@@ -1,7 +1,7 @@
 import { Renderer } from '../../design';
 
 export const Home = () => {
-    const config = [
+    const configs = [
         {
             component: 'customerText',
             config: {
@@ -14,7 +14,9 @@ export const Home = () => {
     ];
     return (
         <div>
-            <Renderer />
+            {configs.map(config => (
+                <Renderer {...config} />
+            ))}
         </div>
     );
 }
