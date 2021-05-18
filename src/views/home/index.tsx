@@ -10,12 +10,15 @@ export const Home = () => {
         api.get({
             apiPath: '/client/config',
             params: {
-              pageType: 'home'
+              pageType: 'webHome'
             }
           }).then((pageConfig: MessageDataInterface) => {
-            setConfigs(pageConfig);
-            pageConfig.config = { component: '', config: '' };
-            IframeManager.postMessage(pageConfig);
+              if(pageConfig) {
+                setConfigs(pageConfig);
+                pageConfig.config = { component: '', config: '' };
+                IframeManager.postMessage(pageConfig);
+              }
+            
           });
     },[]);
     return (

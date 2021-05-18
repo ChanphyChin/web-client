@@ -3,6 +3,7 @@ import { CSSProperties, Component } from 'react';
 import { cloneDeep } from 'lodash';
 import { PlusOutlined } from '@ant-design/icons';
 
+import { IframeManager } from '../../../services';
 import { Parser } from '../index';
 import { MessageDataInterface } from '../../types';
 import './index.scss';
@@ -63,6 +64,14 @@ export class EditableRenderer extends Component<EditableRendererProps, EditableR
     componentWillReceiveProps(props: EditableRendererProps) {
         const { pageConfig } = props;
         pageConfig && this.setState({ postMessage: pageConfig });
+    }
+
+    componentWillMount () {
+        IframeManager.subscrib(this.receiveMessage);
+    }
+
+    componentWillUnmount () {
+        IframeManager.unSubscrib();
     }
 
     receiveMessage = (e: any) => {
