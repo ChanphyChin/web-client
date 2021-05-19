@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {
   HashRouter as Router,
   Switch,
+  Redirect
 } from "react-router-dom";
 
 import { config, RouteWithSubRoutes } from './routes';
@@ -16,6 +17,7 @@ ReactDOM.render(
           {config.map(route => (
             <RouteWithSubRoutes key={route.path} {...route} />
           ))}
+          <Redirect from='*' to='/home' />
       </Switch>
     </Router>
   </React.StrictMode>,

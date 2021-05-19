@@ -8,6 +8,8 @@ import { Parser } from '../index';
 import { MessageDataInterface } from '../../types';
 import './index.scss';
 
+import { CustomerHeader } from '../../components/customer-header';
+
 const grid = 4;
 
 const getItemStyle = (isDragging: Boolean, draggableStyle: CSSProperties): CSSProperties => ({

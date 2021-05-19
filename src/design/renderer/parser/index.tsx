@@ -1,4 +1,4 @@
-import { CustomerText } from '../../components/customer-text';
+import { CustomerText, CustomerHeader } from '../../components';
 
 interface RendererProps {
     config: any;
@@ -11,6 +11,9 @@ export const Parser = (props: RendererProps) => {
     switch(props.component) {
         case 'CustomerText' : {
             return <CustomerText config={config} isEdit={props.isEdit as Boolean} />;
+        }
+        case 'CustomerHeader' : {
+            return <CustomerHeader config={config} isEdit={props.isEdit as Boolean} />;
         }
         default: 
         return null;
